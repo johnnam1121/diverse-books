@@ -5,7 +5,7 @@ import { Card } from 'react-bootstrap';
 function FetchGoogle() {
   const [book, setBook] = useState("");
   const [result, setResult] = useState([]);
-  const apiKey = 'AIzaSyBjz1KrnlXtaREQKbCmTwv-smz5_KpxTTg'
+  const apiKey = ''
 
   function handleChange(event) {
     const book = event.target.value;

@@ -1,16 +1,18 @@
-import { Container, Row } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 import './App.css';
-import FetchCsv from './components/FetchCsv';
-import FetchGoogle from './components/FetchGoogle';
 
-function App() {
-  return (
-    <Container>
-      <Row>
+import FetchCsv from './components/FetchCsv';
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <div >
         <FetchCsv />
-      </Row>
-    </Container>
-  );
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App

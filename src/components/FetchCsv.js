@@ -1,58 +1,28 @@
-import Papa from 'papaparse';
-import React, { Component } from 'react';
-import csvFile from '../Book.csv';
+import React, { useState } from 'react';
+import * as Papa from 'papaparse';
 
-let data = Papa.parse(csvFile, {
-  download: true,
-  complete: function (input) {
-    const records = input.data;
-    data = records;
-    console.log(records)
-  }
-});
+// 0Title, 1Isbn, 2CcbcCollection, 3Genres, 4Publisher, 5Subject, 6Contributors, 7ContributorTypes, 8Contributor Identity
 
-let category;
-let suggestion;
+function FetchCsv() {
+  const [text, setText] = useState();
 
-class FetchCsv extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
+  const load = function () {
+    fetch('./Book.csv')
+      .then(response => response.text())
+      .then(responseText => {
+        // -- parse csv
+        var data = Papa.parse(responseText);
+        setText(responseText);
+        console.log('data:', data);
+      })
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    for (var i = 0; i < data.length; i++) {
-      if (this.state.value === data[i][0]) {
-        category = data[i][2];
-        //console.log(category);
-      }
-    }
-    for (var i = 0; i < data.length; i++) {
-      if ((data[i][2] === category) && (data[i][0] != this.state.value)) {
-        console.log(data[i][0]);
-      }
-    }
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
+  return (
+    <div>
+      <button onClick={load}>load</button>
+      <h2>text:</h2>
+      <pre>{text}</pre>
+    </div>
+  );
 }
-
-export default FetchCsv
+export default FetchCsv;
