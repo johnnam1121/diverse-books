@@ -11,7 +11,8 @@ import Topbar from './components/Topbar';
 function App() {
   const [text, setText] = useState();
   const [book, setBook] = useState("");
-  const [suggestion, setsuggestion] = useState("");
+  const [suggestion, setSuggestion] = useState("");
+  const [author, setAuthor] = useState("");
   function handleChange(event) {
     const book = event.target.value;
     setBook(book);
@@ -74,8 +75,9 @@ function App() {
 
         // console.log(removeBookDupes)
         // console.log(removeAuthorDupes)
-        pickRandom = Math.floor(Math.random(1) * bookSuggestions.length);
-        setsuggestion(bookSuggestions[pickRandom]);
+        pickRandom = Math.floor(Math.random(1) * removeBookDupes.length);
+        setSuggestion(removeBookDupes[pickRandom]);
+        setAuthor(removeAuthorDupes[pickRandom]);
 
       })
   }
@@ -105,7 +107,9 @@ function App() {
             </form>
             <Main
               input={text}
+              google={"http://www.google.com/search?q="}
               suggestion={suggestion}
+              author={author}
             />
           </Col>
         </Row>

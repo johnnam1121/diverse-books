@@ -10,10 +10,8 @@ function Main(props) {
           <h3>{props.input}</h3>
           <h2 style={{ marginTop: '3vh' }}>Consider checking out:</h2>
           <h3>{props.suggestion}</h3>
-          <p>Check out some teaching material
-            <a href={`${props.suggestion}.txt`} onclick="$('a').hide()"
-              target="_blank" >here</a>
-          </p>
+          <h3>By: {props.author}</h3>
+          <p>Check out some teaching material <a href={props.google + props.suggestion} target="_blank" rel="noreferrer" >here</a></p>
         </Col>
       </Row>
     </Container>
