@@ -6,6 +6,7 @@ import * as Papa from 'papaparse';
 function FetchCsv() {
   const [text, setText] = useState();
   const [book, setBook] = useState("");
+  const [suggestion, setsuggestion] = useState("");
   function handleChange(event) {
     const book = event.target.value;
     setBook(book);
@@ -45,7 +46,7 @@ function FetchCsv() {
           currentBookGenres = genreList[i];
         }
         currentBookGenres = currentBookGenres.split(/[.\,-=/_]/);
-        console.log('currentBookGenres', currentBookGenres)
+        // console.log('currentBookGenres', currentBookGenres)
 
         let bookSuggestions = [];
         let authors = [];
@@ -66,8 +67,10 @@ function FetchCsv() {
         let removeBookDupes = [...new Set(bookSuggestions)]
         let removeAuthorDupes = [...new Set(authors)]
 
-        console.log(removeBookDupes)
-        console.log(removeAuthorDupes)
+        // console.log(removeBookDupes)
+        // console.log(removeAuthorDupes)
+        pickRandom = Math.floor(Math.random(1) * bookSuggestions.length);
+        setsuggestion(bookSuggestions[pickRandom]);
 
       })
   }
@@ -80,6 +83,7 @@ function FetchCsv() {
       </form>
       <h2>text:</h2>
       <pre>{text}</pre>
+      <pre>{suggestion}</pre>
     </div>
   );
 }
