@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/diverse-books/static/css/main.4bff3736.css",
+    "main.js": "/diverse-books/static/js/main.3045f0a8.js",
+    "static/js/787.22e92944.chunk.js": "/diverse-books/static/js/787.22e92944.chunk.js",
+    "static/media/LibraryWallpaper.jpeg": "/diverse-books/static/media/LibraryWallpaper.399e7b593e48a135e986.jpeg",
+    "index.html": "/diverse-books/index.html",
+    "main.4bff3736.css.map": "/diverse-books/static/css/main.4bff3736.css.map",
+    "main.3045f0a8.js.map": "/diverse-books/static/js/main.3045f0a8.js.map",
+    "787.22e92944.chunk.js.map": "/diverse-books/static/js/787.22e92944.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4bff3736.css",
+    "static/js/main.3045f0a8.js"
+  ]
+}
